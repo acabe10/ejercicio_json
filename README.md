@@ -6,4 +6,4 @@ En este proyecto vamos a crear un programa en python en el cuál usaremos el fic
 * Pedir continente y mostrar cuantos países tiene.
 * Pedir moneda y que te diga de que país es.
 * Pedir un idioma y país, y mostrar la traducción de ese país en ese idioma.
-* Preguntar cuantos países se va a preguntar y mostrar por tamaño ordenado.
+* Preguntar cuantos países se va a preguntar y mostrar por tamaño ordenados.
