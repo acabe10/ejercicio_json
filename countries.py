@@ -34,6 +34,82 @@ def moneda(doc,currency):
 			paises__.append(paises["name"]["common"])
 	return paises__
 
+def idioma():
+	while True:
+		print("Dime el idioma:")
+		print("1.Checo")
+		print("2.Alemán")
+		print("3.Francés")
+		print("4.Croata")
+		print("5.Italiano")
+		print("6.Japonés")
+		print("7.Holandés")
+		print("8.Portugués")
+		print("9.Ruso")
+		print("10.Esloveno")
+		print("11.Español")
+		print("12.Finlandés")
+		print("13.Estonio")
+		print("14.Chino")
+		print("15.Polaco")
+		print("16.Coreano")
+		print()
+		opcion=int(input("Elige opción: "))
+		print()
+
+		if opcion == 1:
+			idioma="Checo"
+			return idioma
+		elif opcion == 2:
+			idioma="Alemán"
+			return idioma
+		elif opcion == 3:
+			idioma="Francés"
+			return idioma
+		elif opcion == 4:
+			idioma="Croata"
+			return idioma
+		elif opcion == 5:
+			idioma="Italiano"
+			return idioma
+		elif opcion == 6:
+			idioma="Japonés"
+			return idioma
+		elif opcion == 7:
+			idioma="Holandés"
+			return idioma
+		elif opcion == 8:
+			idioma="Portugués"
+			return idioma
+		elif opcion == 9:
+			idioma="Ruso"
+			return idioma
+		elif opcion == 10:
+			idioma="Esloveno"
+			return idioma
+		elif opcion == 11:
+			idioma="Español"
+			return idioma
+		elif opcion == 12:
+			idioma="Finlandés"
+			return idioma
+		elif opcion == 13:
+			idioma="Estonio"
+			return idioma
+		elif opcion == 14:
+			idioma="Chino"
+			return idioma
+		elif opcion == 15:
+			idioma="Polaco"
+			return idioma
+		elif opcion == 16:
+			idioma="Coreano"
+			return idioma
+		else:
+			print()
+			print("Error de opción")
+			print()
+
 while True:
 	print()
 	print("1.Pedir país y listar fronteras.")
@@ -77,8 +153,9 @@ while True:
 			print(pais)
 
 	elif opcion == 4:
-		idioma = input("Dime un idioma: ").title()
+		idioma = idioma()
 		pais = input("Dime un país: ").title()
+
 
 # Opción de error de opción		    
 	else:
