@@ -27,10 +27,10 @@ def continentes(doc,continente):
 			paises.append(conti["name"]["common"])
 	return paises
 
-def moneda(doc,moneda):
+def moneda(doc,currency):
 	paises__=[]
 	for paises in doc:
-		if moneda == paises["currency"]:
+		if currency in paises["currency"]:
 			paises__.append(paises["name"]["common"])
 	return paises__
 
@@ -70,10 +70,11 @@ while True:
 
 	elif opcion == 3:
 		currency=input("Dime una moneda: ").upper()
-		pais = moneda(doc,currency)
+		paises = moneda(doc,currency)
 		print()
-		print("La moneda %s pertenece a los siguientes países:" % moneda)
-		print(pais)
+		print("La moneda %s pertenece a los siguientes países:" % currency)
+		for pais in paises:
+			print(pais)
 
 # Opción de error de opción		    
 	else:
