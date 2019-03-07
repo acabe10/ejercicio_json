@@ -20,6 +20,20 @@ def siglas_pais(doc,siglas):
 			fronteras_name.append(paises["name"]["common"])
 	return fronteras_name
 
+def continentes(doc,continente):
+	paises=[]
+	for conti in doc:
+		if continente == conti["region"]:
+			paises.append(conti["name"]["common"])
+	return paises
+
+def moneda(doc,moneda):
+	paises__=[]
+	for paises in doc:
+		if moneda == paises["currency"]:
+			paises__.append(paises["name"]["common"])
+	return paises__
+
 while True:
 	print()
 	print("1.Pedir país y listar fronteras.")
@@ -47,6 +61,18 @@ while True:
 			for siglas in fronte:
 				for name in siglas_pais(doc,siglas):
 					print(name)
+
+	elif opcion == 2:
+		continente=input("Dime un continente: ").title()
+		region = continentes(doc,continente)
+		print()
+		print("%s tiene %i países" % (continente,len(region)))
+
+	elif opcion == 3:
+		moneda=input("Dime una moneda: ").upper()
+		pais = continentes(doc,continente)
+		print()
+		print("%s tiene %i países" % (continente,len(region)))
 
 # Opción de error de opción		    
 	else:
