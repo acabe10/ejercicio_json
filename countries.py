@@ -14,11 +14,11 @@ def fronteras(doc,pais):
 	return fronteras
 
 def siglas_pais(doc,siglas):
-	fronteras_name=[]
+	name=[]
 	for paises in doc:
 		if siglas == paises["cca3"]:
-			fronteras_name.append(paises["name"]["common"])
-	return fronteras_name
+			name.append(paises["name"]["common"])
+	return name
 
 def continentes(doc,continente):
 	paises=[]
@@ -75,6 +75,10 @@ while True:
 		print("La moneda %s pertenece a los siguientes países:" % currency)
 		for pais in paises:
 			print(pais)
+
+	elif opcion == 4:
+		idioma = input("Dime un idioma: ").title()
+		pais = input("Dime un país: ").title()
 
 # Opción de error de opción		    
 	else:
