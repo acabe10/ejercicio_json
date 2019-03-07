@@ -69,10 +69,11 @@ while True:
 		print("%s tiene %i países" % (continente,len(region)))
 
 	elif opcion == 3:
-		moneda=input("Dime una moneda: ").upper()
-		pais = continentes(doc,continente)
+		currency=input("Dime una moneda: ").upper()
+		pais = moneda(doc,currency)
 		print()
-		print("%s tiene %i países" % (continente,len(region)))
+		print("La moneda %s pertenece a los siguientes países:" % moneda)
+		print(pais)
 
 # Opción de error de opción		    
 	else:
