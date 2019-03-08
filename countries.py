@@ -58,57 +58,69 @@ def idioma():
 		print()
 
 		if opcion == 1:
-			idioma="Checo"
+			idioma="ces"
 			return idioma
 		elif opcion == 2:
-			idioma="Alemán"
+			idioma="deu"
 			return idioma
 		elif opcion == 3:
-			idioma="Francés"
+			idioma="fra"
 			return idioma
 		elif opcion == 4:
-			idioma="Croata"
+			idioma="hrv"
 			return idioma
 		elif opcion == 5:
-			idioma="Italiano"
+			idioma="ita"
 			return idioma
 		elif opcion == 6:
-			idioma="Japonés"
+			idioma="jpn"
 			return idioma
 		elif opcion == 7:
-			idioma="Holandés"
+			idioma="nld"
 			return idioma
 		elif opcion == 8:
-			idioma="Portugués"
+			idioma="por"
 			return idioma
 		elif opcion == 9:
-			idioma="Ruso"
+			idioma="rus"
 			return idioma
 		elif opcion == 10:
-			idioma="Esloveno"
+			idioma="slk"
 			return idioma
 		elif opcion == 11:
-			idioma="Español"
+			idioma="spa"
 			return idioma
 		elif opcion == 12:
-			idioma="Finlandés"
+			idioma="fin"
 			return idioma
 		elif opcion == 13:
-			idioma="Estonio"
+			idioma="est"
 			return idioma
 		elif opcion == 14:
-			idioma="Chino"
+			idioma="zho"
 			return idioma
 		elif opcion == 15:
-			idioma="Polaco"
+			idioma="pol"
 			return idioma
 		elif opcion == 16:
-			idioma="Coreano"
+			idioma="kor"
 			return idioma
 		else:
 			print()
 			print("Error de opción")
 			print()
+
+def idiomas(doc,idioma,pais):
+	for i in doc:
+		if pais == i["name"]["common"]:
+			return i["translations"][idioma]["common"]
+
+def tamapaises(doc,npaises):
+	lista = []
+	for i in range(npaises):
+		pais = input("País: ")
+		lista.append(pais)
+	return lista
 
 while True:
 	print()
@@ -155,7 +167,13 @@ while True:
 	elif opcion == 4:
 		idioma = idioma()
 		pais = input("Dime un país: ").title()
+		idio = idiomas(doc,idioma,pais)
+		print("La traducción es: ",idio)
 
+	elif opcion == 5:
+		npaises = int(input("¿Cuántos países quiere comparar?: "))
+		lista = tamapaises(doc,npaises)
+		print(lista)
 
 # Opción de error de opción		    
 	else:
