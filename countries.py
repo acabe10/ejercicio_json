@@ -180,9 +180,9 @@ while True:
 		dicc = tamapaises(doc,npaises)
 		ordenado = sorted(dicc.items(), key=operator.itemgetter(1))
 		ordenado.reverse()
+		print("Países por tamaño ordenados:")
 		for i in ordenado:
-			print("Paises ordenados por tamaño:")
-			print(ordenado)
+			print("País:",i[0],"--- Área que ocupa:",i[1])
 
 # Opción de error de opción		    
 	else:
