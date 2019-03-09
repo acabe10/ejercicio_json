@@ -1,4 +1,5 @@
 import json
+import operator
 with open("countries.json") as fichero:
 	doc=json.load(fichero)
 
@@ -177,7 +178,11 @@ while True:
 	elif opcion == 5:
 		npaises = int(input("¿Cuántos países quiere comparar?: "))
 		dicc = tamapaises(doc,npaises)
-		print(dicc)
+		ordenado = sorted(dicc.items(), key=operator.itemgetter(1))
+		ordenado.reverse()
+		for i in ordenado:
+			print("Paises ordenados por tamaño:")
+			print(ordenado)
 
 # Opción de error de opción		    
 	else:
