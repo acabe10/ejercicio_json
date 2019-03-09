@@ -3,7 +3,7 @@ import operator
 with open("countries.json") as fichero:
 	doc=json.load(fichero)
 
-
+# Función para mostrar fronteras según el país
 def fronteras(doc,pais):
 	fronteras=[]
 	for paises in doc:
@@ -14,6 +14,7 @@ def fronteras(doc,pais):
 				print("Este país no tiene fronteras, es una isla.")
 	return fronteras
 
+# Función para pasar de sigla a nombre común de país
 def siglas_pais(doc,siglas):
 	name=[]
 	for paises in doc:
@@ -21,6 +22,7 @@ def siglas_pais(doc,siglas):
 			name.append(paises["name"]["common"])
 	return name
 
+# Función para mostrar los países de cada continente
 def continentes(doc,continente):
 	paises=[]
 	for conti in doc:
@@ -28,6 +30,7 @@ def continentes(doc,continente):
 			paises.append(conti["name"]["common"])
 	return paises
 
+# Función para sacar país según moneda introducida
 def moneda(doc,currency):
 	paises__=[]
 	for paises in doc:
@@ -35,6 +38,7 @@ def moneda(doc,currency):
 			paises__.append(paises["name"]["common"])
 	return paises__
 
+# Función para pedir idioma
 def idioma():
 	while True:
 		print("Dime el idioma:")
@@ -111,11 +115,13 @@ def idioma():
 			print("Error de opción")
 			print()
 
+# Función para mostrar el idioma común del país solicitado
 def idiomas(doc,idioma,pais):
 	for i in doc:
 		if pais == i["name"]["common"]:
 			return i["translations"][idioma]["common"]
 
+# Función para crear diccionario con tamaño de países
 def tamapaises(doc,npaises):
 	dicc = {}
 	for i in range(1,npaises+1):
@@ -127,6 +133,7 @@ def tamapaises(doc,npaises):
 				dicc[pais] = i["area"]
 	return dicc
 
+# Menú del programa
 while True:
 	print()
 	print("1.Pedir país y listar fronteras.")
@@ -149,18 +156,21 @@ while True:
 # Opción 1: pedir país y listar fronteras.
 	elif opcion == 1:
 		pais=input("Dime un país: ").title()
+		print()
 		print("%s tiene fronteras con:" % pais)
 		for fronte in fronteras(doc,pais):
 			for siglas in fronte:
 				for name in siglas_pais(doc,siglas):
 					print(name)
 
+# Opción 2: pedir continente y mostrar cuántos países tiene
 	elif opcion == 2:
 		continente=input("Dime un continente: ").title()
 		region = continentes(doc,continente)
 		print()
 		print("%s tiene %i países" % (continente,len(region)))
 
+# Opción 3: pide una moneda y te dice cuantos países la usan
 	elif opcion == 3:
 		currency=input("Dime una moneda: ").upper()
 		paises = moneda(doc,currency)
@@ -169,17 +179,21 @@ while True:
 		for pais in paises:
 			print(pais)
 
+# Opción 4: pide un idioma y un país, y te muestra la traducción en ese idioma
 	elif opcion == 4:
 		idioma = idioma()
 		pais = input("Dime un país: ").title()
 		idio = idiomas(doc,idioma,pais)
+		print()
 		print("La traducción es: ",idio)
 
+# Opción 5: te pregunta cuantos países se van a comparar, y te los muestra por tamaño ordenados
 	elif opcion == 5:
 		npaises = int(input("¿Cuántos países quiere comparar?: "))
 		dicc = tamapaises(doc,npaises)
 		ordenado = sorted(dicc.items(), key=operator.itemgetter(1))
 		ordenado.reverse()
+		print()
 		print("Países por tamaño ordenados:")
 		for i in ordenado:
 			print("País:",i[0],"--- Área que ocupa:",i[1])
