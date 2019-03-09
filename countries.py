@@ -116,11 +116,15 @@ def idiomas(doc,idioma,pais):
 			return i["translations"][idioma]["common"]
 
 def tamapaises(doc,npaises):
-	lista = []
-	for i in range(npaises):
-		pais = input("País: ")
-		lista.append(pais)
-	return lista
+	dicc = {}
+	for i in range(1,npaises+1):
+		print("País",i,": ")
+		pais = input("").title()
+		dicc[pais] = 0
+		for i in doc:
+			if pais == i["name"]["common"]:
+				dicc[pais] = i["area"]
+	return dicc
 
 while True:
 	print()
@@ -172,8 +176,8 @@ while True:
 
 	elif opcion == 5:
 		npaises = int(input("¿Cuántos países quiere comparar?: "))
-		lista = tamapaises(doc,npaises)
-		print(lista)
+		dicc = tamapaises(doc,npaises)
+		print(dicc)
 
 # Opción de error de opción		    
 	else:
